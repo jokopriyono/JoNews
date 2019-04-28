@@ -3,4 +3,38 @@
     <color name="colorPrimary">#4F4D8C</color>
     <color name="colorPrimaryDark">#474073</color>
     <color name="colorAccent">#8F8EBF</color>
+    <integer-array name="logo_glyph_color">
+        <item>@color/color_1</item>
+        <item>@color/color_2</item>
+        <item>@color/color_3</item>
+        <item>@color/color_4</item>
+        <item>@color/color_5</item>
+        <item>@color/color_6</item>
+        <item>@color/color_7</item>
+        <item>@color/color_8</item>
+        <item>@color/color_9</item>
+        <item>@color/color_10</item>
+        <item>@color/color_10</item>
+        <item>@android:color/white</item>
+        <item>@android:color/white</item>
+        <item>@android:color/white</item>
+        <item>@android:color/white</item>
+        <item>@color/color_11</item>
+        <item>@color/color_11</item>
+        <item>@color/color_12</item>
+        <item>@color/color_12</item>
+        <item>@android:color/white</item>
+    </integer-array>
+    <color name="color_1">#CAD8E8</color>
+    <color name="color_2">#74BC3B</color>
+    <color name="color_3">#7AC943</color>
+    <color name="color_4">#EFDA20</color>
+    <color name="color_5">#FCEE21</color>
+    <color name="color_6">#FF1D25</color>
+    <color name="color_7">#F41929</color>
+    <color name="color_8">#C1272D</color>
+    <color name="color_9">#3FA9F5</color>
+    <color name="color_10">#FFFF00</color>
+    <color name="color_11">#0071BC</color>
+    <color name="color_12">#2E3192</color>
 </resources>

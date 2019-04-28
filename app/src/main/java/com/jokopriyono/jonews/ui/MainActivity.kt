@@ -1,8 +1,10 @@
-package com.jokopriyono.jonews
+package com.jokopriyono.jonews.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import com.jokopriyono.jonews.NewsAdapter
+import com.jokopriyono.jonews.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
