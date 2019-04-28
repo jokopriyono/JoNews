@@ -16,6 +16,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "BASE_URL", "\"https://newsapi.org/v2/\""
+        buildConfigField "String", "API_KEY", "\"19c1ef57e3f04ed695d8c0c0b34f4978\""
     }
     buildTypes {
         release {
@@ -49,4 +52,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0-alpha04'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha04'
+}
+
+androidExtensions {
+    experimental = true
 }
