@@ -1,7 +1,7 @@
 package com.jokopriyono.jonews
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -15,5 +15,6 @@ class MainActivity : AppCompatActivity() {
             layoutManager = GridLayoutManager(context, 2)
             adapter = NewsAdapter()
         }
+        for (i in 1..3) tab_layout.addTab(tab_layout.newTab().setText(R.string.app_name))
     }
 }
