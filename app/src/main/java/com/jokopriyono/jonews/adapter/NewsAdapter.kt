@@ -12,7 +12,7 @@ import com.jokopriyono.jonews.data.response.Article
 import com.squareup.picasso.Picasso
 
 class NewsAdapter(
-    private val articles: List<Article>,
+    var articles: List<Article>,
     private val clickListener: (Article) -> Unit
 ) : RecyclerView.Adapter<NewsViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
