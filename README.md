@@ -10,7 +10,7 @@ Untuk dapat membuka setiap project saya sarankan menggunakan Android Studio vers
 Cara Buka Project
 --------
 
-Silahkan clone atau download file .zip nya, lalu open project menggunakan editor [Android Studio][1], untuk project NetCache ada di dalam folder NetCache/, untuk project FormTastic ada di dalam folder FormTastic/ .
+Silahkan clone atau download file .zip nya, lalu open project menggunakan editor [Android Studio][1].
 
 License
 =======
