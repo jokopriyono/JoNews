@@ -15,7 +15,7 @@ import org.jetbrains.anko.startActivity
 class SplashScreenActivity : AppCompatActivity(), SplashView {
     companion object {
         const val INTENT_DATA = "data"
-        private const val DEFAULT_CATEGORY = "business"
+        const val DEFAULT_CATEGORY = "business"
     }
 
     private lateinit var presenter: SplashPresenter

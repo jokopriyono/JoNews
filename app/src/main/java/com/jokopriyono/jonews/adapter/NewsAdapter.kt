@@ -35,19 +35,21 @@ class NewsViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     private var imgNews: ImageView? = null
     private var txtTitle: TextView? = null
     private var txtDate: TextView? = null
+    private var txtCategory: TextView? = null
     private var cardView: CardView? = null
 
     init {
         imgNews = itemView.findViewById(R.id.img_news)
         txtTitle = itemView.findViewById(R.id.txt_title)
         txtDate = itemView.findViewById(R.id.txt_date)
+        txtCategory = itemView.findViewById(R.id.txt_category)
         cardView = itemView.findViewById(R.id.card_view_news)
     }
 
     fun bind(article: Article, clickListener: (Article) -> Unit) {
         imgNews?.let { Picasso.get().load(article.urlToImage).centerCrop().fit().into(it) }
-        txtDate?.text =
-            Common.getSimpleDate(Common.stringToDateTime(article.publishedAt))
+        txtCategory?.text = article.category
+        txtDate?.text = Common.getSimpleDate(Common.stringToDateTime(article.publishedAt))
         txtTitle?.let { it.text = article.title }
         cardView?.setOnClickListener { clickListener(article) }
     }

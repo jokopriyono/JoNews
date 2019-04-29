@@ -6,6 +6,7 @@ import com.jokopriyono.jonews.Common
 import com.jokopriyono.jonews.R
 import com.jokopriyono.jonews.data.ApiRepository
 import com.jokopriyono.jonews.data.JsonApi
+import com.jokopriyono.jonews.data.response.Article
 import com.jokopriyono.jonews.data.response.TopHeadlines
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -26,12 +27,19 @@ class SplashPresenter(
                             apiRepository.doRequest(JsonApi.getTopHeadlines(category)).await(), TopHeadlines::class.java
                         )
                     data?.let {
-                        splashView.intentToMain(it)
+                        setDefaultCategory(data)
                     }
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
             }
         } else splashView.showAlert(context.getString(R.string.error_connection))
+    }
+
+    private fun setDefaultCategory(data: TopHeadlines) {
+        for (article: Article in data.articles) {
+            article.category = SplashScreenActivity.DEFAULT_CATEGORY
+        }
+        splashView.intentToMain(data)
     }
 }
