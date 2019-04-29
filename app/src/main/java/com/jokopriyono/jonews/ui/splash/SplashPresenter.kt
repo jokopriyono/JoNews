@@ -30,6 +30,7 @@ class SplashPresenter(
                         setDefaultCategory(data)
                     }
                 } catch (e: Exception) {
+                    splashView.t(e.localizedMessage)
                     e.printStackTrace()
                 }
             }

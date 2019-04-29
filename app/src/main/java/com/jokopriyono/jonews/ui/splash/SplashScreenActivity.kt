@@ -10,6 +10,7 @@ import com.jokopriyono.jonews.data.response.TopHeadlines
 import com.jokopriyono.jonews.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 import org.jetbrains.anko.alert
+import org.jetbrains.anko.longToast
 import org.jetbrains.anko.startActivity
 
 class SplashScreenActivity : AppCompatActivity(), SplashView {
@@ -37,6 +38,10 @@ class SplashScreenActivity : AppCompatActivity(), SplashView {
         }, 500)
     }
 
+    override fun t(message: String) {
+        longToast(message)
+        finish()
+    }
     override fun showAlert(m: String) {
         alert(m) {
             isCancelable = false
