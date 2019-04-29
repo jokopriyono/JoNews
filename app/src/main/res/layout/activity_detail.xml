@@ -14,6 +14,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 app:title="@string/app_name"
+                app:navigationIcon="@drawable/v_left"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
                 android:minHeight="?attr/actionBarSize"
@@ -102,6 +103,17 @@
                     android:text="@string/app_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
+            <Button
+                    android:id="@+id/txt_read_more"
+                    android:background="@color/colorAccent"
+                    android:padding="5dp"
+                    android:textSize="14sp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/read_more"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"/>
         </LinearLayout>
     </ScrollView>
 

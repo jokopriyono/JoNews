@@ -4,13 +4,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.jokopriyono.jonews.Common
 import com.jokopriyono.jonews.R
 import com.jokopriyono.jonews.data.response.Article
 import com.squareup.picasso.Picasso
 
-class NewsAdapter(private val articles: List<Article>) : RecyclerView.Adapter<NewsViewHolder>() {
+class NewsAdapter(
+    private val articles: List<Article>,
+    private val clickListener: (Article) -> Unit
+) : RecyclerView.Adapter<NewsViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return NewsViewHolder(inflater, parent)
@@ -21,7 +25,7 @@ class NewsAdapter(private val articles: List<Article>) : RecyclerView.Adapter<Ne
     }
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
-        holder.bind(articles[position])
+        holder.bind(articles[position], clickListener)
     }
 
 }
@@ -31,17 +35,20 @@ class NewsViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     private var imgNews: ImageView? = null
     private var txtTitle: TextView? = null
     private var txtDate: TextView? = null
+    private var cardView: CardView? = null
 
     init {
         imgNews = itemView.findViewById(R.id.img_news)
         txtTitle = itemView.findViewById(R.id.txt_title)
         txtDate = itemView.findViewById(R.id.txt_date)
+        cardView = itemView.findViewById(R.id.card_view_news)
     }
 
-    fun bind(article: Article) {
+    fun bind(article: Article, clickListener: (Article) -> Unit) {
         imgNews?.let { Picasso.get().load(article.urlToImage).centerCrop().fit().into(it) }
         txtDate?.text =
             Common.getSimpleDate(Common.stringToDateTime(article.publishedAt))
         txtTitle?.let { it.text = article.title }
+        cardView?.setOnClickListener { clickListener(article) }
     }
 }

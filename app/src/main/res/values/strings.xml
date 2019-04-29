@@ -3,6 +3,7 @@
     <string name="category">Category</string>
     <string name="error_connection">Cek koneksi internet kamu, lalu coba lagi</string>
     <string name="try_again">Coba lagi</string>
+    <string name="read_more">Selengkapnya</string>
     <string-array name="logo_glyph">
         <item>M410.58 466.81A168.01 22.19 0 0 1 74.56 466.81A168.01 22.19 0 0 1 410.58 466.81Z</item>
         <item>M390.96 335.52c0 0 4.36 9.76 1.06 23.68c-4.19 17.69 -10.08 18.4 -7.41 32.57c1.61 8.56 11.28 15.45 19.67

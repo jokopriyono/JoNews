@@ -7,9 +7,12 @@ import com.google.gson.Gson
 import com.jokopriyono.jonews.R
 import com.jokopriyono.jonews.adapter.NewsAdapter
 import com.jokopriyono.jonews.data.ApiRepository
+import com.jokopriyono.jonews.data.response.Article
 import com.jokopriyono.jonews.data.response.TopHeadlines
+import com.jokopriyono.jonews.ui.detail.DetailActivity
 import com.jokopriyono.jonews.ui.splash.SplashScreenActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity(), MainView {
     private lateinit var presenter: MainPresenter
@@ -31,10 +34,14 @@ class MainActivity : AppCompatActivity(), MainView {
         topHeadlines?.let {
             recycler.apply {
                 layoutManager = GridLayoutManager(context, 2)
-                adapter = NewsAdapter(it.articles)
+                adapter = NewsAdapter(it.articles) { article: Article -> intentToDetail(article) }
             }
         }
 
+    }
+
+    private fun intentToDetail(article: Article) {
+        startActivity<DetailActivity>(DetailActivity.INTENT_ARTICLE to article)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
