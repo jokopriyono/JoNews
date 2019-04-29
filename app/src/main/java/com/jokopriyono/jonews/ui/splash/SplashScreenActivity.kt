@@ -15,6 +15,7 @@ import org.jetbrains.anko.startActivity
 class SplashScreenActivity : AppCompatActivity(), SplashView {
     companion object {
         const val INTENT_DATA = "data"
+        private const val DEFAULT_CATEGORY = "business"
     }
 
     private lateinit var presenter: SplashPresenter
@@ -26,7 +27,7 @@ class SplashScreenActivity : AppCompatActivity(), SplashView {
         presenter = SplashPresenter(this, ApiRepository(), Gson(), this)
 
         playAnimation()
-        presenter.getTopHidelines()
+        presenter.getTopHidelines(DEFAULT_CATEGORY)
     }
 
     override fun playAnimation() {
@@ -39,7 +40,7 @@ class SplashScreenActivity : AppCompatActivity(), SplashView {
     override fun showAlert(m: String) {
         alert(m) {
             positiveButton(getString(R.string.try_again)) {
-                presenter.getTopHidelines()
+                presenter.getTopHidelines(DEFAULT_CATEGORY)
                 it.dismiss()
             }
         }.show()

@@ -8,11 +8,12 @@ object JsonApi {
         return Uri.parse(BuildConfig.BASE_URL).buildUpon().build().toString()
     }
 
-    fun getTopHeadlines(): String {
+    fun getTopHeadlines(category: String): String {
         return Uri.parse(getBaseUrl())
             .buildUpon()
             .appendPath("top-headlines")
             .appendQueryParameter("country", "id")
+            .appendQueryParameter("category", category)
             .appendQueryParameter("apiKey", BuildConfig.API_KEY)
             .build().toString()
     }

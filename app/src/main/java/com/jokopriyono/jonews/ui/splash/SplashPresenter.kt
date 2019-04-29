@@ -17,13 +17,13 @@ class SplashPresenter(
     private val gson: Gson,
     private val context: Context
 ) {
-    fun getTopHidelines() {
+    fun getTopHidelines(category: String) {
         if (Common.checkInternet(context)) {
             GlobalScope.launch(Dispatchers.Main) {
                 try {
                     val data =
                         gson.fromJson(
-                            apiRepository.doRequest(JsonApi.getTopHeadlines()).await(), TopHeadlines::class.java
+                            apiRepository.doRequest(JsonApi.getTopHeadlines(category)).await(), TopHeadlines::class.java
                         )
                     data?.let {
                         splashView.intentToMain(it)
