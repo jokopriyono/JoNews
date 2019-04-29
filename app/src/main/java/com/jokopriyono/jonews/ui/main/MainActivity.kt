@@ -18,6 +18,10 @@ import org.jetbrains.anko.alert
 import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity(), MainView, TabLayout.OnTabSelectedListener {
+    companion object {
+        private const val KEY_CATEGORY = "category"
+    }
+
     private lateinit var presenter: MainPresenter
     private var topHeadlines: TopHeadlines? = null
     private var selectedCategory = SplashScreenActivity.DEFAULT_CATEGORY
@@ -26,13 +30,26 @@ class MainActivity : AppCompatActivity(), MainView, TabLayout.OnTabSelectedListe
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        topHeadlines = if (savedInstanceState == null) intent.getParcelableExtra(SplashScreenActivity.INTENT_DATA)
-        else savedInstanceState.getParcelable(SplashScreenActivity.INTENT_DATA)
-
         presenter = MainPresenter(this, ApiRepository(), Gson(), this)
 
         for (cat: String in resources.getStringArray(R.array.categories)) {
             tab_layout.addTab(tab_layout.newTab().setText(cat))
+        }
+
+        if (savedInstanceState == null) {
+            topHeadlines = intent.getParcelableExtra(SplashScreenActivity.INTENT_DATA)
+        } else {
+            topHeadlines = savedInstanceState.getParcelable(SplashScreenActivity.INTENT_DATA)
+            selectedCategory = savedInstanceState.getString(KEY_CATEGORY, SplashScreenActivity.DEFAULT_CATEGORY)
+            var loop = 0
+            while (tab_layout.getTabAt(loop) != null) {
+                val tab: TabLayout.Tab? = tab_layout.getTabAt(loop)
+                if (tab != null && tab.text == selectedCategory) {
+                    tab_layout.selectTab(tab)
+                    break
+                }
+                loop++
+            }
         }
 
         topHeadlines?.let {
@@ -74,6 +91,7 @@ class MainActivity : AppCompatActivity(), MainView, TabLayout.OnTabSelectedListe
 
     override fun onSaveInstanceState(outState: Bundle) {
         topHeadlines?.let { outState.putParcelable(SplashScreenActivity.INTENT_DATA, it) }
+        outState.putString(KEY_CATEGORY, selectedCategory)
         super.onSaveInstanceState(outState)
     }
 
