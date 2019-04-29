@@ -7,6 +7,7 @@ import com.jokopriyono.jonews.R
 import com.jokopriyono.jonews.data.response.Article
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail.*
+import org.jetbrains.anko.browse
 
 class DetailActivity : AppCompatActivity() {
     companion object {
@@ -30,6 +31,10 @@ class DetailActivity : AppCompatActivity() {
             Picasso.get().load(it.urlToImage).centerCrop().fit().into(img_news)
             val text = it.content + " .."
             txt_desc.text = text
+
+            btn_read_more.setOnClickListener { _ ->
+                browse(it.url, true)
+            }
         }
 
         toolbar.setNavigationOnClickListener { finish() }

@@ -105,7 +105,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             <Button
-                    android:id="@+id/txt_read_more"
+                    android:id="@+id/btn_read_more"
                     android:background="@color/colorAccent"
                     android:padding="5dp"
                     android:textSize="14sp"
