@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.Gson
+import com.jokopriyono.jonews.Common
 import com.jokopriyono.jonews.R
 import com.jokopriyono.jonews.adapter.NewsAdapter
 import com.jokopriyono.jonews.data.ApiRepository
@@ -46,11 +47,13 @@ class MainActivity : AppCompatActivity(), MainView, TabLayout.OnTabSelectedListe
         this.topHeadlines = topHeadlines
         recycler.apply {
             layoutManager = GridLayoutManager(context, 2)
+            val color = Common.randomColor()
             if (recycler.adapter == null) {
-                adapter = NewsAdapter(topHeadlines.articles) { article: Article -> intentToDetail(article) }
+                adapter = NewsAdapter(topHeadlines.articles, color) { article: Article -> intentToDetail(article) }
             } else {
                 val adapt = adapter as NewsAdapter
                 adapt.articles = topHeadlines.articles
+                adapt.color = color
                 adapt.notifyDataSetChanged()
             }
         }

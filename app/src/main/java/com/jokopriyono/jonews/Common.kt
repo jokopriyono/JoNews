@@ -42,4 +42,14 @@ object Common {
     fun stringToDateTime(s: String): Date {
         return SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssX", Locale.getDefault()).parse(s)
     }
+
+    /**
+     * Return random hex color, example '#11aaff'
+     */
+    fun randomColor(): String {
+        val random = Random()
+        val nextInt = random.nextInt(0xffffff + 1)
+        return String.format("#%06x", nextInt)
+
+    }
 }
