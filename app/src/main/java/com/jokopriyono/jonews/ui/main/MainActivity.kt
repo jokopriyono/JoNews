@@ -76,10 +76,11 @@ class MainActivity : AppCompatActivity(), MainView, TabLayout.OnTabSelectedListe
 
     override fun showAlert(m: String, category: String) {
         alert(m) {
-            positiveButton(m) {
+            positiveButton(R.string.try_again) {
                 presenter.getTopHidelines(category)
                 it.dismiss()
             }
+            isCancelable = false
         }.show()
     }
 

@@ -39,6 +39,7 @@ class SplashScreenActivity : AppCompatActivity(), SplashView {
 
     override fun showAlert(m: String) {
         alert(m) {
+            isCancelable = false
             positiveButton(getString(R.string.try_again)) {
                 presenter.getTopHidelines(DEFAULT_CATEGORY)
                 it.dismiss()
