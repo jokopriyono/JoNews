@@ -39,4 +39,9 @@ class DetailActivity : AppCompatActivity() {
 
         toolbar.setNavigationOnClickListener { finish() }
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        article?.let { outState.putParcelable(INTENT_ARTICLE, it) }
+        super.onSaveInstanceState(outState)
+    }
 }
