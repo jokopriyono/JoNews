@@ -23,9 +23,7 @@ class SplashScreenActivity : AppCompatActivity(), SplashView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        val apiRepository = ApiRepository()
-        val gson = Gson()
-        presenter = SplashPresenter(this, apiRepository, gson, this)
+        presenter = SplashPresenter(this, ApiRepository(), Gson(), this)
 
         playAnimation()
         presenter.getTopHidelines()
@@ -38,9 +36,9 @@ class SplashScreenActivity : AppCompatActivity(), SplashView {
         }, 500)
     }
 
-    override fun showAlert() {
-        alert("Masalah internet") {
-            positiveButton("Coba lagi") {
+    override fun showAlert(m: String) {
+        alert(m) {
+            positiveButton(getString(R.string.try_again)) {
                 presenter.getTopHidelines()
                 it.dismiss()
             }

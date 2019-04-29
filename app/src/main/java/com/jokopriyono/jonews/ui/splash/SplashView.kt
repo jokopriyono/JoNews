@@ -4,6 +4,6 @@ import com.jokopriyono.jonews.data.response.TopHeadlines
 
 interface SplashView {
     fun playAnimation()
-    fun showAlert()
+    fun showAlert(m: String)
     fun intentToMain(data: TopHeadlines)
 }

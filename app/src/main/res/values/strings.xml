@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Jo News</string>
     <string name="category">Category</string>
+    <string name="error_connection">Cek koneksi internet kamu, lalu coba lagi</string>
+    <string name="try_again">Coba lagi</string>
     <string-array name="logo_glyph">
         <item>M410.58 466.81A168.01 22.19 0 0 1 74.56 466.81A168.01 22.19 0 0 1 410.58 466.81Z</item>
         <item>M390.96 335.52c0 0 4.36 9.76 1.06 23.68c-4.19 17.69 -10.08 18.4 -7.41 32.57c1.61 8.56 11.28 15.45 19.67
@@ -71,5 +73,14 @@
         <item>M385.61 253.19c0.45 8.92 -1.06 19.8 -5.58 31.61c-4.84 12.65 -11.56 22.2 -18.3 28.57c-10.3 -7.45 -14.17
             -23.06 -8.52 -37.82C358.99 260.47 372.74 251.37 385.61 253.19z
         </item>
+    </string-array>
+    <string-array name="categories">
+        <item>business</item>
+        <item>entertainment</item>
+        <item>general</item>
+        <item>health</item>
+        <item>science</item>
+        <item>sports</item>
+        <item>technology</item>
     </string-array>
 </resources>

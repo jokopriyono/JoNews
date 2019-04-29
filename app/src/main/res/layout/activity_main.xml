@@ -34,8 +34,7 @@
 
     <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
-            style="@style/TabCategory"
-            app:tabTextAppearance="@style/TabTextAppearance"/>
+            style="@style/TabCategory"/>
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipe_layout"
             android:layout_width="match_parent"

@@ -3,6 +3,7 @@ package com.jokopriyono.jonews.ui.splash
 import android.content.Context
 import com.google.gson.Gson
 import com.jokopriyono.jonews.Common
+import com.jokopriyono.jonews.R
 import com.jokopriyono.jonews.data.ApiRepository
 import com.jokopriyono.jonews.data.JsonApi
 import com.jokopriyono.jonews.data.response.TopHeadlines
@@ -31,6 +32,6 @@ class SplashPresenter(
                     e.printStackTrace()
                 }
             }
-        } else splashView.showAlert()
+        } else splashView.showAlert(context.getString(R.string.error_connection))
     }
 }
