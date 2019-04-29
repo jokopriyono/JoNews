@@ -1,10 +1,12 @@
-package com.jokopriyono.jonews
+package com.jokopriyono.jonews.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.jokopriyono.jonews.Common
+import com.jokopriyono.jonews.R
 import com.jokopriyono.jonews.data.response.Article
 import com.squareup.picasso.Picasso
 
@@ -38,7 +40,8 @@ class NewsViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
 
     fun bind(article: Article) {
         imgNews?.let { Picasso.get().load(article.urlToImage).centerCrop().fit().into(it) }
-        txtDate?.text = Common.getSimpleDate(Common.stringToDateTime(article.publishedAt))
+        txtDate?.text =
+            Common.getSimpleDate(Common.stringToDateTime(article.publishedAt))
         txtTitle?.let { it.text = article.title }
     }
 }

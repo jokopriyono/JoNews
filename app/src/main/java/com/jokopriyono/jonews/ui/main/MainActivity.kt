@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.gson.Gson
-import com.jokopriyono.jonews.NewsAdapter
 import com.jokopriyono.jonews.R
+import com.jokopriyono.jonews.adapter.NewsAdapter
 import com.jokopriyono.jonews.data.ApiRepository
 import com.jokopriyono.jonews.data.response.TopHeadlines
 import com.jokopriyono.jonews.ui.splash.SplashScreenActivity
